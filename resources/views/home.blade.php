@@ -40,7 +40,7 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <label>Select the desired payment platform:</label>
-                                <div class="form-group">
+                                <div class="form-group" id="toggler">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         @foreach ($paymentPlatforms as $paymentPlatform)
                                             <label
@@ -58,6 +58,15 @@
                                             </label>
                                         @endforeach
                                     </div>
+                                    @foreach ($paymentPlatforms as $paymentPlatform)
+                                        <div
+                                            id="{{ $paymentPlatform->name }}Collapse"
+                                            class="collapse"
+                                            data-parent="#toggler"
+                                        >
+                                            @includeIf('components.' . strtolower($paymentPlatform->name) . '-collapse')
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
