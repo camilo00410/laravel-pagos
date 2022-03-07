@@ -28,7 +28,6 @@ class HomeController extends Controller
         $currencies = Currency::all();
 
         $paymentPlatforms = PaymentPlatform::all();
-        return $paymentPlatforms;
         
         return view('home')->with([
             'currencies' => $currencies,

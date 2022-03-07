@@ -29,7 +29,10 @@ class PaymentController extends Controller
         return $paymentPlatform->handleApproval();
     }
 
-    public function cancelled(){
-
+    public function cancelled()
+    {
+        return redirect()   
+            ->route('home')
+            ->withErrors('You cancelled the payment');
     }
 }
